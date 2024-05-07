@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "DM Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+  }
+}
+
+body {
+  @apply bg-primary text-primary;
+  font-family: "DM Sans", sans-serif;
+}
+
+.bg-primary {
+  @apply bg-[#010101];
+}
+
+.bg-secondary {
+  @apply bg-[#191919];
+}
+
+.bg-accent-hover:hover {
+  @apply bg-pink-700;
+}
+.bg-accent {
+  @apply bg-pink-700;
+}
+.text-primary {
+  @apply text-[#e9e9e9];
+}
+
+.text-secondary {
+  @apply text-[#8c8c8c];
+}
+
+.text-accent {
+  @apply text-pink-700;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: pretty;
+  }
+}
+
+.primary-btn {
+  @apply glass-div text-primary w-fit rounded-md border border-pink-700 border-opacity-50 px-3 py-2 text-base font-bold;
+  transition: all 0.3s;
+  -webkit-box-shadow:
+    1px 1px 0.5rem rgb(190, 24, 93),
+    -1px -1px 0.5rem rgba(190, 24, 93);
+  box-shadow:
+    1px 1px 0.5rem rgba(190, 24, 93),
+    -1px -1px 0.5rem rgba(190, 24, 93);
+}
+
+.primary-btn:hover {
+  @apply w-fit rounded-md border border-pink-700 px-3 py-2 text-base font-bold;
+  transition: all 0.3s;
+  -webkit-box-shadow:
+    2px 2px 1.5rem rgba(190, 24, 93),
+    -2px -2px 1.5rem rgba(190, 24, 93);
+  box-shadow:
+    2px 2px 1.5rem rgba(190, 24, 93),
+    -2px -2px 1.5rem rgba(190, 24, 93);
+}
+
+.primary-btn:active {
+  -webkit-box-shadow:
+    2px 2px 2rem rgba(190, 24, 93),
+    -2px -2px 2rem rgba(190, 24, 93);
+  box-shadow:
+    2px 2px 2rem rgba(190, 24, 93),
+    -2px -2px 2rem rgba(190, 24, 93);
+  -webkit-transition: 100ms;
+  transition: 100ms;
+}
+
+.glass-div {
+  background: linear-gradient(
+    -45deg,
+    rgb(0, 0, 0, 0.5) 0%,
+    rgba(25, 25, 25, 0.5) 10%,
+    rgba(40, 40, 40, 0.5) 50%,
+    rgb(25, 25, 25, 0.5) 90%,
+    rgb(0, 0, 0, 0.5) 100%
+  );
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+}
+
+.nav-btn button {
+  @apply w-fit px-3 py-2 text-sm font-semibold;
+  color: var(--text-primary);
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  transition-property: color;
+}
+
+.nav-btn button:focus:after,
+.nav-btn button:hover:after {
+  width: 80%;
+  left: 10%;
+}
+
+.nav-btn button:after {
+  @apply rounded-md;
+  content: "";
+  pointer-events: none;
+  bottom: 2px;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 0.2rem;
+  background-color: var(--text-primary);
+  transition: all 0.2s ease-out;
+  transition-property: width, left;
+}
+
+.nav-active button {
+  @apply w-fit px-3 py-2 text-sm font-semibold;
+  color: var(--text-primary);
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  transition-property: color;
+}
+
+.nav-active button:after {
+  @apply rounded-md;
+  content: "";
+  pointer-events: none;
+  bottom: 2px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 0.2rem;
+  background-color: var(--text-primary);
+  transition: all 0.2s ease-out;
+  transition-property: width, left;
+}
+.primary-btn-nav,
+nav .primary-btn {
+  @apply rounded-md px-2 py-1 text-sm font-medium;
+  color: var(--text-primary);
+  background: var(--background-primary);
+  transition: all 0.3s;
+  border: 0.1rem solid #000000;
+}
+
+.primary-btn-nav:hover,
+nav .primary-btn:hover {
+  @apply rounded-md px-2 py-1 text-sm font-medium;
+  color: var(--background-primary);
+  transition: all 0.3s;
+  background: var(--text-primary);
+  border: 0.1rem solid #000000;
+}
+
+@layer utilities {
+  .paused {
+    animation-play-state: paused;
+  }
+}
